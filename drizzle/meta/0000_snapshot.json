@@ -1,0 +1,172 @@
+{
+  "id": "eb04f6d5-db0c-4b6c-9ac6-c66ad8b75425",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "tax.tax_configs": {
+      "name": "tax_configs",
+      "schema": "tax",
+      "columns": {
+        "tax_config_id": {
+          "name": "tax_config_id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "version": {
+          "name": "version",
+          "type": "bigserial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "country_reason": {
+          "name": "country_reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "country_code": {
+          "name": "country_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_modified_date": {
+          "name": "last_modified_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "current_rules_count": {
+          "name": "current_rules_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "max_rules_count": {
+          "name": "max_rules_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "tax.tax_rules": {
+      "name": "tax_rules",
+      "schema": "tax",
+      "columns": {
+        "tax_rule_id": {
+          "name": "tax_rule_id",
+          "type": "bigserial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "version": {
+          "name": "version",
+          "type": "bigserial",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tax_config_id": {
+          "name": "tax_config_id",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_linear": {
+          "name": "is_linear",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "a_factor": {
+          "name": "a_factor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "b_factor": {
+          "name": "b_factor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_square": {
+          "name": "is_square",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "a_square_factor": {
+          "name": "a_square_factor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "b_square_factor": {
+          "name": "b_square_factor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "c_square_factor": {
+          "name": "c_square_factor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tax_code": {
+          "name": "tax_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "tax_rules_tax_config_id_tax_configs_tax_config_id_fk": {
+          "name": "tax_rules_tax_config_id_tax_configs_tax_config_id_fk",
+          "tableFrom": "tax_rules",
+          "tableTo": "tax_configs",
+          "schemaTo": "tax",
+          "columnsFrom": ["tax_config_id"],
+          "columnsTo": ["tax_config_id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1737475750690,
+      "tag": "0000_even_stellaris",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1737562857244,
+      "tag": "0001_empty_zaran",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1737564114214,
+      "tag": "0002_complete_silver_fox",
+      "breakpoints": true
+    }
+  ]
+}
